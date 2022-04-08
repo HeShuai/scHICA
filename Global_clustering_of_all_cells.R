@@ -245,7 +245,7 @@ removed_gene_list <- c('ACTA1',
 Fetal_muscle_cells <- subset_cells@meta.data %>% subset(Name == "Muscle" & Stage == "Fetal") %>% row.names()
 subset_cells@assays$RNA@counts[removed_gene_list, Fetal_muscle_cells] <- 0
 
-###-------------------then reomeve the doublets cluster and run the "Round one" step for the final clustering.
+###-------------------then reomeve the doublets clusters and run the "Round one" step for the final clustering.
 
 ###-----------------------------------------------------------------------------------------------------------------------------###
 colors_dxs <- c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', 
