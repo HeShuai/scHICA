@@ -13,7 +13,7 @@ library(ggsci)
 
 color_used <- c(pal_npg()(10),pal_igv()(9),pal_uchicago("light")(9),pal_futurama()(12), pal_aaas()(10), pal_jco()(10), pal_nejm()(8))[-8]
 
-###-----------------------1. the first clustering-----------------------####
+###-----------------------Step 1. romove the ambient RNA using Soupx-----------------------####
 ags <- commandArgs(trailingOnly = T)
 setwd("/data4/heshuai/RAW_data/1-SingleCell/3-HCA/HCA2.0/All_sample_contamination_removed")
 
@@ -23,6 +23,7 @@ sc <-  load10X(ags[1])
 sc <-  autoEstCont(sc)
 out <-  adjustCounts(sc) %>% round()
 
+###-----------------------Step 2. quality control-----------------------####
 Seurat_object <- CreateSeuratObject(out, min.cells = 1, min.features = 0)
 
 mito.features <- grep(pattern = "^MT-", x = rownames(x = Seurat_object), value = TRUE)
@@ -56,7 +57,7 @@ write.table(data.frame(Tissue = samplename, genes = dim(subset_cells@assays$RNA@
             file = paste0(samplename, "_before_dobuletfinder.txt"),
             sep = "\t", row.names = F, quote = F)
 
-##------------------------2.doublet finder processing---------------------------------------------------------------------
+##------------------------Step 3. doublets removing using doubletfinder---------------------------------------------------------------------
 sweep.res.list <- paramSweep_v3(subset_cells, PCs = subset_cells@commands$FindNeighbors.RNA.pca$dims)
 sweep.stats <- summarizeSweep(sweep.res.list, GT = FALSE)
 bcmvn <- find.pK(sweep.stats)
@@ -77,7 +78,7 @@ subset_cells@meta.data[high_of_low[, 1] + high_of_low[, 2] == 2, "DF_hi.lo"] <- 
 subset_cells@meta.data[high_of_low[, 1] + high_of_low[, 2] == 1, "DF_hi.lo"] <- "Doublet_lo"
 subset_cells@meta.data[high_of_low[, 1] + high_of_low[, 2] == 0, "DF_hi.lo"] <- "Doublet_hi"
 
-##------------------------3.remove the doublets and recluster-----------------#######
+##------------------------4).remove the doublets and recluster-----------------#######
 # subset_cells <- subset_cells[, subset_cells@meta.data[grepl(subset_cells$DF_hi.lo, pattern = "Singlet"), ] %>% row.names()]
 subset_cells <- TenXdat[, subset_cells@meta.data[grepl(subset_cells$DF_hi.lo, pattern = "Singlet"), ] %>% row.names()]
 ##------------------------. recluster-----------------#######
