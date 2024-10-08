@@ -34,7 +34,7 @@ TenXdat <- subset(x = TenXdat, subset = nFeature_RNA >= 500 & nFeature_RNA < 700
 
 TenXdat <- NormalizeData(object = TenXdat, normalization.method = "LogNormalize", scale.factor = 1e4)
 TenXdat <- FindVariableFeatures(object = TenXdat, nfeatures = 2000)
-TenXdat <- ScaleData(object = TenXdat, features = VariableFeatures(object = TenXdat), vars.to.regress = c("nCount_RNA"))###only regress counts and variable featrues was used.
+TenXdat <- ScaleData(object = TenXdat, features = VariableFeatures(object = TenXdat), vars.to.regress = c("nCount_RNA"))
 TenXdat <- RunPCA(object = TenXdat, features = VariableFeatures(object = TenXdat), verbose = FALSE)
 
 subset_cells <- TenXdat
