@@ -243,4 +243,52 @@ ggplot(data = rbind_cycle, aes(x = Multiple, y = Cycle %>% as.numeric())) +
 	labs(x = "Module score of cycle")
 dev.off()
 
+###---------------------------------Treg proportion in each tissue------------------------------###
+meta.data <- read.table("20230404_TNK_meta.data_with_TCR_information_.txt", header = T, row.names = 1, sep = "\t", stringsAsFactors = F)
+meta.data$renamed_Samlename <- meta.data$Name
+meta.data$renamed_Samlename[meta.data$renamed_Samlename %>% grepl(pattern = "^Colon$")] <- "Jejunum"
+meta.data$renamed_Samlename[meta.data$renamed_Samlename %>% grepl(pattern = "Stomach Protein")] <- "Stomach"
+meta.data$renamed_Samlename[meta.data$renamed_Samlename %>% grepl(pattern = ".*blood|.*PBMC.*")] <- "Blood"
+
+meta.data <- meta.data %>% filter(! Detail_Annotation_final %in% c("DG T1", "DG T2", "DG T3", "ILCs", "MAIT",
+				"NK CD16 KIR2DL3","NK CD16 MYOM2", "NK CD56 CCL3", "NK CD56 KIR2DL4", "Pro ILC", "Pro NK"))
+
+###--------------------correlation between CD8 T cell expansion and Treg cell proportion in fetuses and adults--------------------###
+T_cell_meta.data <- meta.data %>% select(row.names, Name:Stage, Samples, renamed_Samlename, Detail_Annotation_final) %>% unique
+CD4 <- T_cell_meta.data %>% filter(grepl(Detail_Annotation_final, pattern = "CD4|Treg")) %>% filter(! grepl(Detail_Annotation_final, pattern = "DP|CD4CD8")) 
+
+Proportion_all <- table(paste0(CD4$Donor, "_", CD4$renamed_Samlename), CD4$Detail_Annotation_final) %>% prop.table(., margin = 1) %>% as.data.frame()
+Treg_cells <- Proportion_all %>% filter(Var2 %in% c("Treg active", "Treg naive", "Pro Treg"))
+all_Tregs <- Treg_cells %>% group_by(Var1) %>% summarise_at(.vars = "Freq", .funs = sum)
+Treg_naive <- Treg_cells %>% filter(Var2 == "Treg naive")
+Treg_active <- Treg_cells %>% filter(Var2 == "Treg active")
+
+dat_for_plot_CD8$expansion_CD8 <- paste0(dat_for_plot_CD8$aid, "_", dat_for_plot_CD8$majorCluster)
+dat_for_plot_CD8$all_treg <- mapvalues(dat_for_plot_CD8$expansion_CD8, from = all_Tregs$Var1, to = all_Tregs$Freq) %>% as.numeric()
+dat_for_plot_CD8$Treg_naive <- mapvalues(dat_for_plot_CD8$expansion_CD8, from = Treg_naive$Var1, to = Treg_naive$Freq) %>% as.numeric()
+dat_for_plot_CD8$Treg_active <- mapvalues(dat_for_plot_CD8$expansion_CD8, from = Treg_active$Var1, to = Treg_active$Freq) %>% as.numeric()
+CD8_expansion_VS_Treg_proportion <- dat_for_plot_CD8 %>% select(expa, Stage, expansion_CD8:all_treg)
+CD8_expansion_VS_Treg_proportion$Tissue <- CD8_expansion_VS_Treg_proportion$expansion_CD8 %>% str_split(pattern = "_", simplify = T) %>% `[`(, 2)
+Fetal_dat <- CD8_expansion_VS_Treg_proportion %>% filter(Stage == "Fetal")
+Adult_dat <- CD8_expansion_VS_Treg_proportion %>% filter(Stage == "Adult")
+
+cor.test(Fetal_dat$expa, Fetal_dat$all_treg, method = "pearson")
+cor.test(Adult_dat$expa, Adult_dat$all_treg, method = "pearson")
+
+pdf("Treg_proportion_and_CD8_expan_in_adult.pdf", height = 10, width = 11)
+ggplot(data = CD8_expansion_VS_Treg_proportion %>% filter(expa >= 0.000001, Stage == "Adult"), aes(x = all_treg, y = expa)) +
+	geom_point(aes(color = Tissue), size = 3) +
+	geom_smooth(method = glm, formula = y ~ x, se = T) +
+	guides(color = guide_legend(ncol = 1, override.aes = list(size = 5))) +
+	scale_color_manual(values = tissues_colors[CD8_expansion_VS_Treg_proportion$Tissue %>% unique() %>% sort()])
+dev.off()
+
+pdf("Treg_proportion_and_CD8_expan_in_Fetal.pdf", height = 10, width = 11)
+ggplot(data = CD8_expansion_VS_Treg_proportion %>% filter(Stage == "Fetal"), aes(x = all_treg, y = expa)) +
+	geom_point(aes(color = Tissue), size = 3) +
+	geom_smooth(method = glm, formula = y ~ x, se = T) +
+	guides(color = guide_legend(ncol = 1, override.aes = list(size = 5))) +
+	scale_color_manual(values = tissues_colors[CD8_expansion_VS_Treg_proportion$Tissue %>% unique() %>% sort()])
+dev.off()
+
 
