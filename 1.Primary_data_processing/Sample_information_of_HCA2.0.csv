@@ -1,0 +1,110 @@
+Tissue,Name,Donor,Stage
+H1,Muscle,Adult1,Adult
+H2,Trachea,Adult1,Adult
+H3,Esophagus,Adult1,Adult
+H4,Pancreas,Adult1,Adult
+H5,Bladder,Adult1,Adult
+H6,Skin,Adult1,Adult
+H7,Stomach,Adult1,Adult
+H8,Liver,Adult1,Adult
+H9,Lung,Adult1,Adult
+H10,Ascending colon,Adult1,Adult
+H11,Stomach Protein,Adult1,Adult
+H12,Duodenum,Adult1,Adult
+H13,Transverse colon,Adult1,Adult
+H14,Ileum,Adult1,Adult
+H15,Whole blood,Adult1,Adult
+H16,Marrow,Adult1,Adult
+H17,Mesenteric lymph node,Adult1,Adult
+H18,PBMC,Adult1,Adult
+H19,Sigmoid colon,Adult1,Adult
+H20,Jejunum,Adult1,Adult
+H21,Lesser gastric curvature,Adult1,Adult
+H22,Pancreas,Fetal1,Fetal
+H23,Kidney,Fetal1,Fetal
+H24,Stomach,Fetal1,Fetal
+H25,Muscle,Fetal1,Fetal
+H26,Heart,Fetal1,Fetal
+H27,Duodenum,Fetal1,Fetal
+H28,Esophagus,Fetal1,Fetal
+H29,Skin,Fetal1,Fetal
+H30,Whole blood,Fetal1,Fetal
+H31,Liver,Fetal1,Fetal
+H32,Spleen,Fetal1,Fetal
+H33,Lung,Fetal1,Fetal
+H34,Thymus,Fetal1,Fetal
+H35,Colon,Fetal1,Fetal
+H36,Sigmoid colon,Fetal1,Fetal
+H37,Heart,Fetal2,Fetal
+H38,Stomach,Fetal2,Fetal
+H39,Pancreas,Fetal2,Fetal
+H40,Liver,Fetal2,Fetal
+H41,Duodenum,Fetal2,Fetal
+H42,Skin,Fetal2,Fetal
+H43,Kidney,Fetal2,Fetal
+H44,Whole blood,Fetal2,Fetal
+H45,Spleen,Fetal2,Fetal
+H46,PBMC,Fetal2,Fetal
+H47,Sigmoid colon,Fetal2,Fetal
+H48,Muscle,Fetal2,Fetal
+H49,Thymus,Fetal2,Fetal
+H50,Lung,Fetal2,Fetal
+H51,Colon,Fetal2,Fetal
+H52,Esophagus,Fetal2,Fetal
+H53,Thymus,Fetal3,Fetal
+H54,Heart,Fetal3,Fetal
+H55,Pancreas,Fetal3,Fetal
+H56,Stomach,Fetal3,Fetal
+H57,Liver,Fetal3,Fetal
+H58,Skin,Fetal3,Fetal
+H59,Muscle,Fetal3,Fetal
+H60,Esophagus,Fetal3,Fetal
+H61,Whole blood,Fetal3,Fetal
+H62,Spleen,Fetal3,Fetal
+H63,Lung,Fetal3,Fetal
+H64,Kidney,Fetal3,Fetal
+H65,Colon,Fetal3,Fetal
+H66,Duodenum,Fetal3,Fetal
+H67,Sigmoid colon,Fetal3,Fetal
+H68,Trachea,Adult2,Adult
+H69,Skin,Adult2,Adult
+H70,Bladder,Adult2,Adult
+H71,Transverse colon,Adult2,Adult
+H72,Sigmoid colon,Adult2,Adult
+H73,Stomach,Adult2,Adult
+H74,Ileum,Adult2,Adult
+H75,Esophagus,Adult2,Adult
+H76,Muscle,Adult2,Adult
+H77,Jejunum,Adult2,Adult
+H78,Duodenum,Adult2,Adult
+H79,Heart,Adult2,Adult
+H80,PBMC,Adult2,Adult
+H81,Ascending colon,Adult2,Adult
+H82,Liver,Adult2,Adult
+H83,Spleen,Adult2,Adult
+H84,Lesser gastric curvature,Adult2,Adult
+H85,Mesenteric lymph node,Adult2,Adult
+H86,Marrow,Adult2,Adult
+H87,Whole blood,Adult2,Adult
+H88,Bladder,Adult2,Adult
+H89,Lung,Adult2,Adult
+H90,Ascending colon,Adult3,Adult
+H91,Jejunum,Adult3,Adult
+H92,Transverse colon,Adult3,Adult
+H93,Trachea,Adult3,Adult
+H94,Esophagus,Adult3,Adult
+H95,Stomach,Adult3,Adult
+H96,Skin,Adult3,Adult
+H97,Heart,Adult3,Adult
+H98,Mesenteric lymph node,Adult3,Adult
+H99,Sigmoid colon,Adult3,Adult
+H100,Bladder,Adult3,Adult
+H101,Duodenum,Adult3,Adult
+H102,Muscle,Adult3,Adult
+H103,Ileum,Adult3,Adult
+H104,Lung,Adult3,Adult
+H105,Spleen,Adult3,Adult
+H106,Whole blood,Adult3,Adult
+H107,Marrow,Adult3,Adult
+H108,PBMC,Adult3,Adult
+H109,Liver,Adult3,Adult
