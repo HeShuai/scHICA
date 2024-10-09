@@ -63,7 +63,7 @@ percentVJ_fixed <- function(input.data, chain = "TRB", group.by = NULL, order.by
 			percentages <- c(percentages, percentages.to.add)
 		}
 		percentages <- percentages[match(str_sort(names(percentages), 
-																							numeric = TRUE), names(percentages))]
+		numeric = TRUE), names(percentages))]
 	})
 	if (exportTable == TRUE) {
 		summary.matrix <- do.call(rbind, summary)
