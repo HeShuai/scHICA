@@ -27,7 +27,7 @@ color_used <- c(pal_npg()(10),pal_igv()(9),pal_uchicago("light")(9),pal_futurama
 options(width = 180)
 ###---------------------------------------TCR clone size (bar plot) in each cell cluster, Fetal--------------------------###
 UMAP <- read.table("HCA2.0_TNK_UMAP.txt", header = T, row.names = 1, sep = "\t", stringsAsFactors = F)
-TCR_meta.data <- read.table("20230404_TNK_meta.data_with_TCR_information_.txt", header = T, row.names = 1, sep = "\t", stringsAsFactors = F)
+TCR_meta.data <- read.table("20230404_TNK_meta.data_with_TCR_information.txt", header = T, row.names = 1, sep = "\t", stringsAsFactors = F)
 TCR_meta.data$renamed_Samlename <- TCR_meta.data$Name
 TCR_meta.data$renamed_Samlename[TCR_meta.data$renamed_Samlename %>% grepl(pattern = "^Colon$")] <- "Jejunum"
 TCR_meta.data$renamed_Samlename[TCR_meta.data$renamed_Samlename %>% grepl(pattern = "Stomach Protein")] <- "Stomach"
