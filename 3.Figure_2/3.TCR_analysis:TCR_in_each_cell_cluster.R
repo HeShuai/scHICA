@@ -34,8 +34,8 @@ TCR_meta.data$renamed_Samlename[TCR_meta.data$renamed_Samlename %>% grepl(patter
 TCR_meta.data$renamed_Samlename[TCR_meta.data$renamed_Samlename %>% grepl(pattern = ".*blood|.*PBMC.*")] <- "Blood"
 
 TCR_meta.data <- TCR_meta.data %>% filter(! Detail_Annotation_final %in% c("DG T1", "DG T2", "DG T3", "ILCs",
-																																					 "MAIT", "NK CD16 KIR2DL3","NK CD16 MYOM2",
-																																					 "NK CD56 CCL3", "NK CD56 KIR2DL4", "Pro ILC", "Pro NK"))
+					"MAIT", "NK CD16 KIR2DL3","NK CD16 MYOM2",
+					"NK CD56 CCL3", "NK CD56 KIR2DL4", "Pro ILC", "Pro NK"))
 ###------------choose CD4 and CD8 cell separately----------###
 T_cell_colon_unique_barcode <- TCR_meta.data %>% select(row.names, customer_clone, Name:Stage, renamed_Samlename, Detail_Annotation_final) %>% unique
 CD4 <- T_cell_colon_unique_barcode %>% filter(grepl(Detail_Annotation_final, pattern = "CD4|Treg")) %>% filter(! grepl(Detail_Annotation_final, pattern = "DP|CD4CD8")) 
@@ -56,14 +56,14 @@ TCR_meta.data <- TCR_meta.data %>% filter(!is.na(Clone_Size))
 TCR_meta.data$UMAP_1 <- mapvalues(TCR_meta.data$row.names, from = UMAP %>% row.names(), to = UMAP$UMAP_1, warn_missing = F) %>% as.numeric()
 TCR_meta.data$UMAP_2 <- mapvalues(TCR_meta.data$row.names, from = UMAP %>% row.names(), to = UMAP$UMAP_2, warn_missing = F) %>% as.numeric()
 TCR_meta.data$Clone_strategy <- with(TCR_meta.data, ifelse(Clone_Size == 1, "Single",
-																													 ifelse(Clone_Size > 1 & Clone_Size <= 5, "2-5",
-																													 			 ifelse(Clone_Size > 5 & Clone_Size <= 10, "6-10",
-																													 			 			 ifelse(Clone_Size > 10 & Clone_Size <= 50, "11-50",
-																													 			 			 			 ifelse(Clone_Size > 50 & Clone_Size <= 100, "51-100",
-																													 			 			 			 			 ifelse(Clone_Size > 100 & Clone_Size <= 250, "101-250",
-																													 			 			 			 			 			 ifelse(Clone_Size > 250 & Clone_Size <= 500, "251-500",
-																													 			 			 			 			 			 			 ifelse(Clone_Size > 500 & Clone_Size <= 1000, "501-1000",
-																													 			 			 			 			 			 			 			 ifelse(Clone_Size > 1000, "1001+", "NON"))))))))))
+					ifelse(Clone_Size > 1 & Clone_Size <= 5, "2-5",
+						ifelse(Clone_Size > 5 & Clone_Size <= 10, "6-10",
+							ifelse(Clone_Size > 10 & Clone_Size <= 50, "11-50",
+								ifelse(Clone_Size > 50 & Clone_Size <= 100, "51-100",
+									ifelse(Clone_Size > 100 & Clone_Size <= 250, "101-250",
+										ifelse(Clone_Size > 250 & Clone_Size <= 500, "251-500",
+											ifelse(Clone_Size > 500 & Clone_Size <= 1000, "501-1000",
+												ifelse(Clone_Size > 1000, "1001+", "NON"))))))))))
 
 Clone_state <- c("Single", "2-5", "6-10", "11-50", "51-100", "101-250", "251-500", "501-1000", "1001+")
 TCR_meta.data$Clone_strategy <- factor(TCR_meta.data$Clone_strategy %>% as.character(), levels = rev(Clone_state))
@@ -75,13 +75,13 @@ Fetal_TCR <- TCR_meta.data %>% filter(Stage == "Fetal")
 
 dats <- table(Fetal_TCR$Clone_strategy, Fetal_TCR$Detail_Annotation_final) %>% t %>% unclass() %>% as.data.frame() %>% rownames_to_column(var = "Cell_type") 
 order_Fetal_celltype <- dats %>% mutate(multiple = c(`1001+` + `501-1000` + `251-500` + `101-250` + `51-100` + `11-50` + `6-10` + `2-5`),
-																				multiple_proportion = multiple/Single, All = multiple + Single) %>% filter(All >= 50) %>%
+						multiple_proportion = multiple/Single, All = multiple + Single) %>% filter(All >= 50) %>%
 	arrange(desc(multiple_proportion)) %>% select(Cell_type) %>% unlist %>% unname()
 dats <- melt(dats) %>% filter(variable != "NON") %>% filter(value != 0)
 
 dats$Cell_type <- factor(dats$Cell_type, levels = c(order_Fetal_celltype %>% grep(pattern = "CD4|Treg", value = T),
-																										order_Fetal_celltype %>% grep(pattern = "CD8", value = T),
-																										order_Fetal_celltype %>% grep(pattern = "DP RAG1|DP TOX2|High pro DP", value = T)))
+						order_Fetal_celltype %>% grep(pattern = "CD8", value = T),
+						order_Fetal_celltype %>% grep(pattern = "DP RAG1|DP TOX2|High pro DP", value = T)))
 
 pdf("Fetal_TCR_clone_structrue_each_cluster_CD4_CD8_separate.pdf", width = 6, height = 4)
 ggplot(dats, aes(x = Cell_type, y = value, fill = variable, color = variable)) + 
@@ -108,23 +108,23 @@ Multiple_DP <- (R_O_E_DP$CST$observed/R_O_E_DP$CST$expected)[, 2]
 
 rbind_RERO_TCR <- rbind_RERO_TCR %>% as.data.frame() %>% t 
 rbind_RERO_TCR <- rbind_RERO_TCR[c(order_Fetal_celltype %>% grep(pattern = "CD4|Treg", value = T),
-																	 order_Fetal_celltype %>% grep(pattern = "CD8", value = T)), ]
+				order_Fetal_celltype %>% grep(pattern = "CD8", value = T)), ]
 numbers <- round(rbind_RERO_TCR %>% unname(), 2)
 
 pheatmap::pheatmap(rbind_RERO_TCR %>% t,
-									 cluster_rows = F, cluster_cols = F,
-									 color = colorRampPalette(c("navy", "white", "firebrick3"))(50),
-									 display_numbers = round(rbind_RERO_TCR %>% unname(), 2) %>% as.matrix() %>% t)
+		cluster_rows = F, cluster_cols = F,
+		color = colorRampPalette(c("navy", "white", "firebrick3"))(50),
+		display_numbers = round(rbind_RERO_TCR %>% unname(), 2) %>% as.matrix() %>% t)
 ###---------------------------------------TCR clone size (bar plot) in each cell cluster, Adult--------------------------###
 Adult_TCR <- TCR_meta.data %>% filter(Stage == "Adult")
 dats <- table(Adult_TCR$Clone_strategy, Adult_TCR$Detail_Annotation_final) %>% t %>% unclass() %>% as.data.frame() %>% rownames_to_column(var = "Cell_type") 
 order_Adult_celltype <- dats %>% mutate(multiple = c(`1001+` + `501-1000` + `251-500` + `101-250` + `51-100` + `11-50` + `6-10` + `2-5`),
-																				multiple_proportion = multiple/Single, All = multiple + Single) %>% filter(All >= 80) %>%
+			multiple_proportion = multiple/Single, All = multiple + Single) %>% filter(All >= 80) %>%
 	arrange(desc(multiple_proportion)) %>% select(Cell_type) %>% unlist %>% unname()
 dats <- melt(dats) %>% filter(variable != "NON") %>% filter(value != 0)
 dats$Cell_type <- factor(dats$Cell_type, levels = c(order_Adult_celltype %>% grep(pattern = "CD4|Treg", value = T),
-																										order_Adult_celltype %>% grep(pattern = "CD8", value = T),
-																										order_Adult_celltype %>% grep(pattern = "DP RAG1|DP TOX2|High pro DP", value = T)))
+			order_Adult_celltype %>% grep(pattern = "CD8", value = T),
+			order_Adult_celltype %>% grep(pattern = "DP RAG1|DP TOX2|High pro DP", value = T)))
 dats <- dats %>% filter(!is.na(Cell_type))
 
 pdf("Adult_TCR_clone_structrue_each_cluster_CD4_CD8_separate.pdf", width = 6, height = 4)
@@ -152,13 +152,13 @@ Multiple_DP <- (R_O_E_DP$CST$observed/R_O_E_DP$CST$expected)[, 2]
 
 rbind_RERO_TCR <- rbind_RERO_TCR %>% as.data.frame() %>% t 
 rbind_RERO_TCR <- rbind_RERO_TCR[c(order_Adult_celltype %>% grep(pattern = "CD4|Treg", value = T),
-																	 order_Adult_celltype %>% grep(pattern = "CD8", value = T)), ]
+				order_Adult_celltype %>% grep(pattern = "CD8", value = T)), ]
 numbers <- round(rbind_RERO_TCR %>% unname(), 2)
 
 pheatmap::pheatmap(rbind_RERO_TCR %>% t,
-									 cluster_rows = F, cluster_cols = F,
-									 color = colorRampPalette(c("navy", "white", "firebrick3"))(50),
-									 display_numbers = round(rbind_RERO_TCR %>% unname(), 2) %>% as.matrix() %>% t)
+			cluster_rows = F, cluster_cols = F,
+			color = colorRampPalette(c("navy", "white", "firebrick3"))(50),
+			display_numbers = round(rbind_RERO_TCR %>% unname(), 2) %>% as.matrix() %>% t)
 
 ###------------------pairwise comparison---------------###
 ovlerlap_celltype <- intersect(Fetal_TCR_meta %>% row.names(), Adult_TCR_meta %>% row.names())
@@ -216,18 +216,18 @@ CD8_TCR <- TCR_meta.data %>% filter(Detail_Annotation_final %>% grepl(pattern = 
 CD8_TCR$Cycle <- mapvalues(CD8_TCR$row.names, from = proliferation %>% row.names(), to = proliferation$Cluster1, warn_missing = F)
 
 CD4_cycle <- list(Single = CD4_TCR %>% filter(Stage == "Fetal") %>% filter(Clone_strategy == "Single") %>% select(Cycle) %>% unlist() %>% as.numeric(),
-									Multiple = CD4_TCR %>% filter(Stage == "Fetal")  %>% filter(Clone_strategy != "Single") %>% select(Cycle) %>% unlist() %>% as.numeric())
+		Multiple = CD4_TCR %>% filter(Stage == "Fetal")  %>% filter(Clone_strategy != "Single") %>% select(Cycle) %>% unlist() %>% as.numeric())
 
 CD8_cycle <- list(Single = CD8_TCR %>% filter(Stage == "Fetal")  %>% filter(Clone_strategy == "Single") %>% select(Cycle) %>% unlist() %>% as.numeric(),
-									Multiple = CD8_TCR %>% filter(Stage == "Fetal")  %>% filter(Clone_strategy != "Single") %>% select(Cycle) %>% unlist() %>% as.numeric())
+		Multiple = CD8_TCR %>% filter(Stage == "Fetal")  %>% filter(Clone_strategy != "Single") %>% select(Cycle) %>% unlist() %>% as.numeric())
 
 t.test(CD4_cycle$Single, CD4_cycle$Multiple)
 t.test(CD8_cycle$Single, CD8_cycle$Multiple)
 
 rbind_cycle <- rbind(CD4_TCR %>% select(Clone_strategy, Cycle, Stage) %>%
-										 	mutate(Cell_type = "CD4", Multiple = ifelse(Clone_strategy != "Single", "Multiple", "Single"), Cluster = paste0(Stage, "_", Cell_type)),
-										 CD8_TCR %>% select(Clone_strategy, Cycle, Stage) %>%
-										 	mutate(Cell_type = "CD8", Multiple = ifelse(Clone_strategy != "Single", "Multiple", "Single"), Cluster = paste0(Stage, "_", Cell_type)))
+			mutate(Cell_type = "CD4", Multiple = ifelse(Clone_strategy != "Single", "Multiple", "Single"), Cluster = paste0(Stage, "_", Cell_type)),
+			CD8_TCR %>% select(Clone_strategy, Cycle, Stage) %>%
+			mutate(Cell_type = "CD8", Multiple = ifelse(Clone_strategy != "Single", "Multiple", "Single"), Cluster = paste0(Stage, "_", Cell_type)))
 rbind_cycle$Multiple <- factor(rbind_cycle$Multiple %>% as.character(), levels = c("Single", "Multiple"))
 rbind_cycle$Cluster <- factor(rbind_cycle$Cluster %>% as.character(), levels = c("Fetal_CD4", "Fetal_CD8", "Adult_CD4", "Adult_CD8"))
 
