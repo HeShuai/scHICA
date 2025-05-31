@@ -96,7 +96,7 @@ adata$obsm$X_pca <- PCA
 bbknn$bbknn(adata, batch_key = 0, n_pcs = as.integer(50))
 sc$tl$umap(adata)
 
-sc$tl$leiden(adata, resolution = 1)
+sc$tl$leiden(adata, resolution = 1) ### A resolution of 2 was applied for clustering across all 321 samples.
 sc$pl$umap(adata, color = 'leiden', save = paste0("BBKNN_EBV_GC_", Projectname, "_data.pdf"))
 
 umap <-  py_to_r(adata$obsm[["X_umap"]])
