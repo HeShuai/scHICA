@@ -37,7 +37,7 @@ Idents(subset_cells) <- subset_cells$Donor_Name
 ave_subset_cells <- AverageExpression(subset_cells, return.seurat = T)
 ave_subset_cells$Donor_Name <- row.names(ave_subset_cells@meta.data)
 
-ave_subset_cells <- FindVariableFeatures(ave_subset_cells, nfeatures = 3000, selection.method = 'vst', mean.cutoff = c(0.1, Inf), dispersion.cutoff = c(0.5, Inf))
+ave_subset_cells <- FindVariableFeatures(ave_subset_cells, nfeatures = 2000, selection.method = 'vst', mean.cutoff = c(0.1, Inf), dispersion.cutoff = c(0.5, Inf))
 ave_subset_cells <- ScaleData(ave_subset_cells, verbose = TRUE)
 
 ave_subset_cells <- RunPCA(ave_subset_cells, features = setdiff(ave_subset_cells@assays$RNA@var.features, row.names(ave_subset_cells) %>% grep(pattern = "^MT-|^RPL|^RPS|^IGK|^IGV|^IGL|^IGH", v = T)) , npcs = 50, verbose = TRUE)
