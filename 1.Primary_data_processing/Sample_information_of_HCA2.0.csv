@@ -1,110 +1,346 @@
-Tissue,Name,Donor,Stage
-H1,Muscle,Adult1,Adult
-H2,Trachea,Adult1,Adult
-H3,Esophagus,Adult1,Adult
-H4,Pancreas,Adult1,Adult
-H5,Bladder,Adult1,Adult
-H6,Skin,Adult1,Adult
-H7,Stomach,Adult1,Adult
-H8,Liver,Adult1,Adult
-H9,Lung,Adult1,Adult
-H10,Ascending colon,Adult1,Adult
-H11,Stomach Protein,Adult1,Adult
-H12,Duodenum,Adult1,Adult
-H13,Transverse colon,Adult1,Adult
-H14,Ileum,Adult1,Adult
-H15,Whole blood,Adult1,Adult
-H16,Marrow,Adult1,Adult
-H17,Mesenteric lymph node,Adult1,Adult
-H18,PBMC,Adult1,Adult
-H19,Sigmoid colon,Adult1,Adult
-H20,Jejunum,Adult1,Adult
-H21,Lesser gastric curvature,Adult1,Adult
-H22,Pancreas,Fetal1,Fetal
-H23,Kidney,Fetal1,Fetal
-H24,Stomach,Fetal1,Fetal
-H25,Muscle,Fetal1,Fetal
-H26,Heart,Fetal1,Fetal
-H27,Duodenum,Fetal1,Fetal
-H28,Esophagus,Fetal1,Fetal
-H29,Skin,Fetal1,Fetal
-H30,Whole blood,Fetal1,Fetal
-H31,Liver,Fetal1,Fetal
-H32,Spleen,Fetal1,Fetal
-H33,Lung,Fetal1,Fetal
-H34,Thymus,Fetal1,Fetal
-H35,Colon,Fetal1,Fetal
-H36,Sigmoid colon,Fetal1,Fetal
-H37,Heart,Fetal2,Fetal
-H38,Stomach,Fetal2,Fetal
-H39,Pancreas,Fetal2,Fetal
-H40,Liver,Fetal2,Fetal
-H41,Duodenum,Fetal2,Fetal
-H42,Skin,Fetal2,Fetal
-H43,Kidney,Fetal2,Fetal
-H44,Whole blood,Fetal2,Fetal
-H45,Spleen,Fetal2,Fetal
-H46,PBMC,Fetal2,Fetal
-H47,Sigmoid colon,Fetal2,Fetal
-H48,Muscle,Fetal2,Fetal
-H49,Thymus,Fetal2,Fetal
-H50,Lung,Fetal2,Fetal
-H51,Colon,Fetal2,Fetal
-H52,Esophagus,Fetal2,Fetal
-H53,Thymus,Fetal3,Fetal
-H54,Heart,Fetal3,Fetal
-H55,Pancreas,Fetal3,Fetal
-H56,Stomach,Fetal3,Fetal
-H57,Liver,Fetal3,Fetal
-H58,Skin,Fetal3,Fetal
-H59,Muscle,Fetal3,Fetal
-H60,Esophagus,Fetal3,Fetal
-H61,Whole blood,Fetal3,Fetal
-H62,Spleen,Fetal3,Fetal
-H63,Lung,Fetal3,Fetal
-H64,Kidney,Fetal3,Fetal
-H65,Colon,Fetal3,Fetal
-H66,Duodenum,Fetal3,Fetal
-H67,Sigmoid colon,Fetal3,Fetal
-H68,Trachea,Adult2,Adult
-H69,Skin,Adult2,Adult
-H70,Bladder,Adult2,Adult
-H71,Transverse colon,Adult2,Adult
-H72,Sigmoid colon,Adult2,Adult
-H73,Stomach,Adult2,Adult
-H74,Ileum,Adult2,Adult
-H75,Esophagus,Adult2,Adult
-H76,Muscle,Adult2,Adult
-H77,Jejunum,Adult2,Adult
-H78,Duodenum,Adult2,Adult
-H79,Heart,Adult2,Adult
-H80,PBMC,Adult2,Adult
-H81,Ascending colon,Adult2,Adult
-H82,Liver,Adult2,Adult
-H83,Spleen,Adult2,Adult
-H84,Lesser gastric curvature,Adult2,Adult
-H85,Mesenteric lymph node,Adult2,Adult
-H86,Marrow,Adult2,Adult
-H87,Whole blood,Adult2,Adult
-H88,Bladder,Adult2,Adult
-H89,Lung,Adult2,Adult
-H90,Ascending colon,Adult3,Adult
-H91,Jejunum,Adult3,Adult
-H92,Transverse colon,Adult3,Adult
-H93,Trachea,Adult3,Adult
-H94,Esophagus,Adult3,Adult
-H95,Stomach,Adult3,Adult
-H96,Skin,Adult3,Adult
-H97,Heart,Adult3,Adult
-H98,Mesenteric lymph node,Adult3,Adult
-H99,Sigmoid colon,Adult3,Adult
-H100,Bladder,Adult3,Adult
-H101,Duodenum,Adult3,Adult
-H102,Muscle,Adult3,Adult
-H103,Ileum,Adult3,Adult
-H104,Lung,Adult3,Adult
-H105,Spleen,Adult3,Adult
-H106,Whole blood,Adult3,Adult
-H107,Marrow,Adult3,Adult
-H108,PBMC,Adult3,Adult
-H109,Liver,Adult3,Adult
+Sample_ID	Tissue	Tissue_merged	Donor	Stage	Age
+H1	Muscle	Muscle	A1	Adult	37
+H2	Trachea	Trachea	A1	Adult	37
+H3	Esophagus	Esophagus	A1	Adult	37
+H4	Pancreas	Pancreas	A1	Adult	37
+H5	Bladder	Bladder	A1	Adult	37
+H6	Skin	Skin	A1	Adult	37
+H7	Stomach	Stomach	A1	Adult	37
+H8	Liver	Liver	A1	Adult	37
+H9	Lung	Lung	A1	Adult	37
+H10	Ascending colon	Ascending colon	A1	Adult	37
+H11	Stomach	Stomach	A1	Adult	37
+H12	Duodenum	Duodenum	A1	Adult	37
+H13	Transverse colon	Transverse colon	A1	Adult	37
+H14	Ileum	Ileum	A1	Adult	37
+H15	Whole blood	Peripheral blood	A1	Adult	37
+H16	Bone marrow	Bone marrow	A1	Adult	37
+H17	Mesenteric lymph node	Mesenteric lymph node	A1	Adult	37
+H18	PBMC	Peripheral blood	A1	Adult	37
+H19	Sigmoid colon	Sigmoid colon	A1	Adult	37
+H20	Jejunum	Jejunum	A1	Adult	37
+H21	Lesser gastric curvature lymph node	Lesser gastric curvature lymph node	A1	Adult	37
+H22	Pancreas	Pancreas	F1	Fetus	19+
+H23	Kidney	Kidney	F1	Fetus	19+
+H24	Stomach	Stomach	F1	Fetus	19+
+H25	Muscle	Muscle	F1	Fetus	19+
+H26	Heart	Heart	F1	Fetus	19+
+H27	Duodenum	Duodenum	F1	Fetus	19+
+H28	Esophagus	Esophagus	F1	Fetus	19+
+H29	Skin	Skin	F1	Fetus	19+
+H30	Whole blood	Peripheral blood	F1	Fetus	19+
+H31	Liver	Liver	F1	Fetus	19+
+H32	Spleen	Spleen	F1	Fetus	19+
+H33	Lung	Lung	F1	Fetus	19+
+H34	Thymus	Thymus	F1	Fetus	19+
+H35	Jejunum	Jejunum	F1	Fetus	19+
+H36	Sigmoid colon	Sigmoid colon	F1	Fetus	19+
+H37	Heart	Heart	F2	Fetus	18+5
+H38	Stomach	Stomach	F2	Fetus	18+5
+H39	Pancreas	Pancreas	F2	Fetus	18+5
+H40	Liver	Liver	F2	Fetus	18+5
+H41	Duodenum	Duodenum	F2	Fetus	18+5
+H42	Skin	Skin	F2	Fetus	18+5
+H43	Kidney	Kidney	F2	Fetus	18+5
+H44	Whole blood	Peripheral blood	F2	Fetus	18+5
+H45	Spleen	Spleen	F2	Fetus	18+5
+H46	PBMC	Peripheral blood	F2	Fetus	18+5
+H47	Sigmoid colon	Sigmoid colon	F2	Fetus	18+5
+H48	Muscle	Muscle	F2	Fetus	18+5
+H49	Thymus	Thymus	F2	Fetus	18+5
+H50	Lung	Lung	F2	Fetus	18+5
+H51	Jejunum	Jejunum	F2	Fetus	18+5
+H52	Esophagus	Esophagus	F2	Fetus	18+5
+H53	Thymus	Thymus	F3	Fetus	23+
+H54	Heart	Heart	F3	Fetus	23+
+H55	Pancreas	Pancreas	F3	Fetus	23+
+H56	Stomach	Stomach	F3	Fetus	23+
+H57	Liver	Liver	F3	Fetus	23+
+H58	Skin	Skin	F3	Fetus	23+
+H59	Muscle	Muscle	F3	Fetus	23+
+H60	Esophagus	Esophagus	F3	Fetus	23+
+H61	Whole blood	Peripheral blood	F3	Fetus	23+
+H62	Spleen	Spleen	F3	Fetus	23+
+H63	Lung	Lung	F3	Fetus	23+
+H64	Kidney	Kidney	F3	Fetus	23+
+H65	Jejunum	Jejunum	F3	Fetus	23+
+H66	Duodenum	Duodenum	F3	Fetus	23+
+H67	Sigmoid colon	Sigmoid colon	F3	Fetus	23+
+H68	Trachea	Trachea	A2	Adult	59
+H69	Skin	Skin	A2	Adult	59
+H70	Bladder	Bladder	A2	Adult	59
+H71	Transverse colon	Transverse colon	A2	Adult	59
+H72	Sigmoid colon	Sigmoid colon	A2	Adult	59
+H73	Stomach	Stomach	A2	Adult	59
+H74	Ileum	Ileum	A2	Adult	59
+H75	Esophagus	Esophagus	A2	Adult	59
+H76	Muscle	Muscle	A2	Adult	59
+H77	Jejunum	Jejunum	A2	Adult	59
+H78	Duodenum	Duodenum	A2	Adult	59
+H79	Heart	Heart	A2	Adult	59
+H80	PBMC	Peripheral blood	A2	Adult	59
+H81	Ascending colon	Ascending colon	A2	Adult	59
+H82	Liver	Liver	A2	Adult	59
+H83	Spleen	Spleen	A2	Adult	59
+H84	Lesser gastric curvature lymph node	Lesser gastric curvature lymph node	A2	Adult	59
+H85	Mesenteric lymph node	Mesenteric lymph node	A2	Adult	59
+H86	Bone marrow	Bone marrow	A2	Adult	59
+H87	Whole blood	Peripheral blood	A2	Adult	59
+H88	Bladder	Bladder	A2	Adult	59
+H89	Lung	Lung	A2	Adult	59
+H90	Ascending colon	Ascending colon	A3	Adult	33
+H91	Jejunum	Jejunum	A3	Adult	33
+H92	Transverse colon	Transverse colon	A3	Adult	33
+H93	Trachea	Trachea	A3	Adult	33
+H94	Esophagus	Esophagus	A3	Adult	33
+H95	Stomach	Stomach	A3	Adult	33
+H96	Skin	Skin	A3	Adult	33
+H97	Heart	Heart	A3	Adult	33
+H98	Mesenteric lymph node	Mesenteric lymph node	A3	Adult	33
+H99	Sigmoid colon	Sigmoid colon	A3	Adult	33
+H100	Bladder	Bladder	A3	Adult	33
+H101	Duodenum	Duodenum	A3	Adult	33
+H102	Muscle	Muscle	A3	Adult	33
+H103	Ileum	Ileum	A3	Adult	33
+H104	Lung	Lung	A3	Adult	33
+H105	Spleen	Spleen	A3	Adult	33
+H106	Whole blood	Peripheral blood	A3	Adult	33
+H107	Bone marrow	Bone marrow	A3	Adult	33
+H108	PBMC	Peripheral blood	A3	Adult	33
+H109	Liver	Liver	A3	Adult	33
+HC1	Spleen	Spleen	F12	Fetus	19+4
+HC2	Whole blood	Peripheral blood	F12	Fetus	19+4
+HC3	Bone marrow	Bone marrow	F12	Fetus	19+4
+HC4	Heart	Heart	F12	Fetus	19+4
+HC5	Liver	Liver	F12	Fetus	19+4
+HC6	Lung	Lung	F12	Fetus	19+4
+HC7	Pancreas	Pancreas	F12	Fetus	19+4
+HC8	Thymus	Thymus	F12	Fetus	19+4
+HC9	Esophagus	Esophagus	F12	Fetus	19+4
+HC10	Skin	Skin	F12	Fetus	19+4
+HC11	Stomach	Stomach	F12	Fetus	19+4
+HC12	Sigmoid colon	Sigmoid colon	F12	Fetus	19+4
+HC13	Jejunum	Jejunum	F12	Fetus	19+4
+HC14	Duodenum	Duodenum	F12	Fetus	19+4
+HC15	Kidney	Kidney	F12	Fetus	19+4
+HC16	Muscle	Muscle	F12	Fetus	19+4
+HC17	Thymus	Thymus	F13	Fetus	16+6
+HC18	Lung	Lung	F13	Fetus	16+6
+HC19	Liver	Liver	F13	Fetus	16+6
+HC20	Spleen	Spleen	F13	Fetus	16+6
+HC21	Heart	Heart	F13	Fetus	16+6
+HC22	Bone marrow	Bone marrow	F13	Fetus	16+6
+HC23	Whole blood	Peripheral blood	F13	Fetus	16+6
+HC24	Skin	Skin	F13	Fetus	16+6
+HC25	Stomach	Stomach	F13	Fetus	16+6
+HC26	Esophagus	Esophagus	F13	Fetus	16+6
+HC27	Pancreas	Pancreas	F13	Fetus	16+6
+HC28	Muscle	Muscle	F13	Fetus	16+6
+HC29	Kidney	Kidney	F13	Fetus	16+6
+HC30	Duodenum	Duodenum	F13	Fetus	16+6
+HC31	Jejunum	Jejunum	F13	Fetus	16+6
+HC32	Sigmoid colon	Sigmoid colon	F13	Fetus	16+6
+HC33	Heart	Heart	F14	Fetus	24+6
+HC34	Muscle	Muscle	F14	Fetus	24+6
+HC35	Liver	Liver	F14	Fetus	24+6
+HC36	Lung	Lung	F14	Fetus	24+6
+HC37	Thymus	Thymus	F14	Fetus	24+6
+HC38	Bone marrow	Bone marrow	F14	Fetus	24+6
+HC39	Spleen	Spleen	F14	Fetus	24+6
+HC40	Whole blood	Peripheral blood	F14	Fetus	24+6
+HC41	Sigmoid colon	Sigmoid colon	F14	Fetus	24+6
+HC42	Kidney	Kidney	F14	Fetus	24+6
+HC43	Jejunum	Jejunum	F14	Fetus	24+6
+HC44	Esophagus	Esophagus	F14	Fetus	24+6
+HC45	Stomach	Stomach	F14	Fetus	24+6
+HC46	Pancreas	Pancreas	F14	Fetus	24+6
+HC47	Duodenum	Duodenum	F14	Fetus	24+6
+HC48	Skin	Skin	F14	Fetus	24+6
+HC49	Lung	Lung	F15	Fetus	14+3
+HC50	Whole blood	Peripheral blood	F15	Fetus	14+3
+HC51	Duodenum	Duodenum	F15	Fetus	14+3
+HC52	Jejunum	Jejunum	F15	Fetus	14+3
+HC53	Heart	Heart	F15	Fetus	14+3
+HC54	Spleen	Spleen	F15	Fetus	14+3
+HC55	Kidney	Kidney	F15	Fetus	14+3
+HC56	Liver	Liver	F15	Fetus	14+3
+HC57	Bone marrow	Bone marrow	F15	Fetus	14+3
+HC58	Esophagus	Esophagus	F15	Fetus	14+3
+HC59	Skin	Skin	F15	Fetus	14+3
+HC60	Sigmoid colon	Sigmoid colon	F15	Fetus	14+3
+HC61	Muscle	Muscle	F15	Fetus	14+3
+HC62	Stomach	Stomach	F15	Fetus	14+3
+HC63	Pancreas	Pancreas	F15	Fetus	14+3
+HC64	Thymus	Thymus	F15	Fetus	14+3
+HC65	Whole blood	Peripheral blood	F16	Fetus	21+4
+HC66	Liver	Liver	F16	Fetus	21+4
+HC67	Lung	Lung	F16	Fetus	21+4
+HC68	Spleen	Spleen	F16	Fetus	21+4
+HC69	Bone marrow	Bone marrow	F16	Fetus	21+4
+HC70	Heart	Heart	F16	Fetus	21+4
+HC71	Kidney	Kidney	F16	Fetus	21+4
+HC72	Duodenum	Duodenum	F16	Fetus	21+4
+HC73	Sigmoid colon	Sigmoid colon	F16	Fetus	21+4
+HC74	Skin	Skin	F16	Fetus	21+4
+HC75	Jejunum	Jejunum	F16	Fetus	21+4
+HC76	Stomach	Stomach	F16	Fetus	21+4
+HC77	Esophagus	Esophagus	F16	Fetus	21+4
+HC78	Muscle	Muscle	F16	Fetus	21+4
+HC79	Thymus	Thymus	F16	Fetus	21+4
+HC80	Pancreas	Pancreas	F16	Fetus	21+4
+HC81	HC81_HSC_liver	HC81_HSC_liver	F13	Fetus	16+6
+HC82	HC82_HSC_heart	HC82_HSC_heart	F13	Fetus	16+6
+HC83	Whole blood	Peripheral blood	F17	Fetus	25+
+HC84	Liver	Liver	F17	Fetus	25+
+HC85	Lung	Lung	F17	Fetus	25+
+HC86	Spleen	Spleen	F17	Fetus	25+
+HC87	Kidney	Kidney	F17	Fetus	25+
+HC88	Jejunum	Jejunum	F17	Fetus	25+
+HC89	Sigmoid colon	Sigmoid colon	F17	Fetus	25+
+HC90	Skin	Skin	F17	Fetus	25+
+HC91	Bone marrow	Bone marrow	F17	Fetus	25+
+HC92	Thymus	Thymus	F17	Fetus	25+
+HC93	Pancreas	Pancreas	F17	Fetus	25+
+HC94	Heart	Heart	F17	Fetus	25+
+HC95	Duodenum	Duodenum	F17	Fetus	25+
+HC96	Muscle	Muscle	F17	Fetus	25+
+HC97	Esophagus	Esophagus	F17	Fetus	25+
+HC98	Stomach	Stomach	F17	Fetus	25+
+HC99	Liver	Liver	F18	Fetus	12
+HC100	Lung	Lung	F18	Fetus	12
+HC101	Jejunum	Jejunum	F18	Fetus	12
+HC102	Whole blood	Peripheral blood	F18	Fetus	12
+HC103	Bone marrow	Bone marrow	F18	Fetus	12
+HC104	Esophagus	Esophagus	F18	Fetus	12
+HC105	Duodenum	Duodenum	F18	Fetus	12
+HC106	Skin	Skin	F18	Fetus	12
+HC107	Kidney	Kidney	F18	Fetus	12
+HC108	Stomach	Stomach	F18	Fetus	12
+HC109	Spleen	Spleen	F18	Fetus	12
+HC110	Muscle	Muscle	F18	Fetus	12
+HC111	Thymus	Thymus	F18	Fetus	12
+HC112	Sigmoid colon	Sigmoid colon	F18	Fetus	12
+HC113	Heart	Heart	F18	Fetus	12
+HC114	Pancreas	Pancreas	F18	Fetus	12
+HC115	Whole blood	Peripheral blood	F19	Fetus	20+
+HC116	Spleen	Spleen	F19	Fetus	20+
+HC117	Bone marrow	Bone marrow	F19	Fetus	20+
+HC118	Duodenum	Duodenum	F19	Fetus	20+
+HC119	Esophagus	Esophagus	F19	Fetus	20+
+HC120	Stomach	Stomach	F19	Fetus	20+
+HC121	Jejunum	Jejunum	F19	Fetus	20+
+HC122	Heart	Heart	F19	Fetus	20+
+HC123	Sigmoid colon	Sigmoid colon	F19	Fetus	20+
+HC124	Pancreas	Pancreas	F19	Fetus	20+
+HC125	Skin	Skin	F19	Fetus	20+
+HC126	Muscle	Muscle	F19	Fetus	20+
+HC127	Thymus	Thymus	F19	Fetus	20+
+HC128	Liver	Liver	F19	Fetus	20+
+HC129	Lung	Lung	F19	Fetus	20+
+HC130	Kidney	Kidney	F19	Fetus	20+
+HC131	Whole blood	Peripheral blood	F20	Fetus	13+1
+HC132	Liver	Liver	F21	Fetus	13+1
+HC133	Bone marrow	Bone marrow	F21	Fetus	13+1
+HC134	Spleen	Spleen	F21	Fetus	13+1
+HC135	Jejunum	Jejunum	F21	Fetus	13+1
+HC136	Whole blood	Peripheral blood	F21	Fetus	13+1
+HC137	Lung	Lung	F21	Fetus	13+1
+HC138	Bone marrow	Bone marrow	F20	Fetus	13+1
+HC139	Liver	Liver	F20	Fetus	13+1
+HC140	Jejunum	Jejunum	F20	Fetus	13+1
+HC141	Lung	Lung	F20	Fetus	13+1
+HC142	Duodenum	Duodenum	F21	Fetus	13+1
+HC143	Duodenum	Duodenum	F20	Fetus	13+1
+HC144	Heart	Heart	F20	Fetus	13+1
+HC145	Esophagus	Esophagus	F20	Fetus	13+1
+HC146	Skin	Skin	F20	Fetus	13+1
+HC147	Kidney	Kidney	F20	Fetus	13+1
+HC148	Sigmoid colon	Sigmoid colon	F20	Fetus	13+1
+HC149	Stomach	Stomach	F20	Fetus	13+1
+HC150	Pancreas	Pancreas	F20	Fetus	13+1
+HC151	Muscle	Muscle	F20	Fetus	13+1
+HC152	Heart	Heart	F21	Fetus	13+1
+HC153	Thymus	Thymus	F20	Fetus	13+1
+HC154	Thymus	Thymus	F21	Fetus	13+1
+HC155	Pancreas	Pancreas	F21	Fetus	13+1
+HC156	Pancreas	Pancreas	F22	Fetus	16+4
+HC157	Whole blood	Peripheral blood	F22	Fetus	16+4
+HC158	Heart	Heart	F22	Fetus	16+4
+HC159	Spleen	Spleen	F22	Fetus	16+4
+HC160	Duodenum	Duodenum	F22	Fetus	16+4
+HC161	Jejunum	Jejunum	F22	Fetus	16+4
+HC162	Skin	Skin	F22	Fetus	16+4
+HC163	Sigmoid colon	Sigmoid colon	F22	Fetus	16+4
+HC164	Muscle	Muscle	F22	Fetus	16+4
+HC165	Lung	Lung	F22	Fetus	16+4
+HC166	Stomach	Stomach	F22	Fetus	16+4
+HC167	Kidney	Kidney	F22	Fetus	16+4
+HC168	Thymus	Thymus	F22	Fetus	16+4
+HC169	Bone marrow	Bone marrow	F22	Fetus	16+4
+HC170	Liver	Liver	F22	Fetus	16+4
+HC171	Esophagus	Esophagus	F22	Fetus	16+4
+HC172	Skin	Skin	F23	Fetus	19+5
+HC173	Duodenum	Duodenum	F23	Fetus	19+5
+HC174	Whole blood	Peripheral blood	F23	Fetus	19+5
+HC175	Kidney	Kidney	F23	Fetus	19+5
+HC176	Jejunum	Jejunum	F23	Fetus	19+5
+HC177	Pancreas	Pancreas	F23	Fetus	19+5
+HC178	Thymus	Thymus	F23	Fetus	19+5
+HC179	Bone marrow	Bone marrow	F23	Fetus	19+5
+HC180	Muscle	Muscle	F23	Fetus	19+5
+HC181	Stomach	Stomach	F23	Fetus	19+5
+HC182	Heart	Heart	F23	Fetus	19+5
+HC183	Spleen	Spleen	F23	Fetus	19+5
+HC184	Esophagus	Esophagus	F23	Fetus	19+5
+HC185	Lung	Lung	F23	Fetus	19+5
+HC186	Liver	Liver	F23	Fetus	19+5
+HC187	Sigmoid colon	Sigmoid colon	F23	Fetus	19+5
+HC188	HC188_HSC_heart	HC188_HSC_heart	F19	Fetus	20+
+HC189	HC189_HSC_liver	HC189_HSC_liver	F19	Fetus	20+
+HC190	HC190_HSC_heart	HC190_HSC_heart	F23	Fetus	19+5
+HC191	HC191_HSC_liver	HC191_HSC_liver	F23	Fetus	19+5
+HC192	Bone marrow	Bone marrow	F24	Fetus	20+
+HC193	Whole blood	Peripheral blood	F24	Fetus	20+
+HC194	Jejunum	Jejunum	F24	Fetus	20+
+HC195	Duodenum	Duodenum	F24	Fetus	20+
+HC196	Pancreas	Pancreas	F24	Fetus	20+
+HC197	Lung	Lung	F24	Fetus	20+
+HC198	Spleen	Spleen	F24	Fetus	20+
+HC199	Liver	Liver	F24	Fetus	20+
+HC200	Muscle	Muscle	F24	Fetus	20+
+HC201	Stomach	Stomach	F24	Fetus	20+
+HC202	Heart	Heart	F24	Fetus	20+
+HC203	Kidney	Kidney	F24	Fetus	20+
+HC204	Thymus	Thymus	F24	Fetus	20+
+HC205	Skin	Skin	F24	Fetus	20+
+HC206	Esophagus	Esophagus	F24	Fetus	20+
+HC207	Sigmoid colon	Sigmoid colon	F24	Fetus	20+
+HC208	Pancreas	Pancreas	A4	Adult	29
+HC209	PBMC	Peripheral blood	A4	Adult	29
+HC210	Bone marrow	Bone marrow	A4	Adult	29
+HC211	Whole blood	Peripheral blood	A4	Adult	29
+HC212	Skin	Skin	A4	Adult	29
+HC213	Ascending colon	Ascending colon	A4	Adult	29
+HC214	Transverse colon	Transverse colon	A4	Adult	29
+HC215	Ileum	Ileum	A4	Adult	29
+HC216	Trachea	Trachea	A4	Adult	29
+HC217	Esophagus	Esophagus	A4	Adult	29
+HC218	Jejunum	Jejunum	A4	Adult	29
+HC219	Bladder	Bladder	A4	Adult	29
+HC220	Lesser gastric curvature lymph node	Lesser gastric curvature lymph node	A4	Adult	29
+HC221	Mesenteric lymph node	Mesenteric lymph node	A4	Adult	29
+HC222	Muscle	Muscle	A4	Adult	29
+HC223	Duodenum	Duodenum	A4	Adult	29
+HC224	Spleen	Spleen	A4	Adult	29
+HC225	Liver	Liver	A4	Adult	29
+HC226	Sigmoid colon	Sigmoid colon	A4	Adult	29
+HC227	Stomach	Stomach	A4	Adult	29
+HC228	Skin	Skin	A4	Adult	29
+HC229	HC229_HSC_heart	HC229_HSC_heart	F24	Fetus	20+
+HC230	HC230_HSC_liver	HC230_HSC_liver	F24	Fetus	20+
+HC231	Esophagus	Esophagus	F21	Fetus	13+1
+HC232	Skin	Skin	F21	Fetus	13+1
+HC233	Kidney	Kidney	F21	Fetus	13+1
+HC234	Sigmoid colon	Sigmoid colon	F21	Fetus	13+1
+HC235	Stomach	Stomach	F21	Fetus	13+1
+HC236	Muscle	Muscle	F21	Fetus	13+1
