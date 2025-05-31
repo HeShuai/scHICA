@@ -12,6 +12,12 @@ options(width = 240)
 options(future.globals.maxSize = 400*1000 * 1024^2)
 plan("multisession", workers = 1)
 plan()
+###----------------------------------This is an example for 109 samples (321 samples in our study)----------------------------------------------####
+################################################################################################
+### Merging Seurat datasets containing over approximately 1.03 million cells and 20,000+ genes can be challenging.
+### As an alternative approach, consider either performing the merge using Python-based tools (e.g., Scanpy)
+### or limiting the analysis in Seurat to highly variable genes instead of the full gene set.
+################################################################################################
 
 tissues_colors <- c("Ascending colon" = "#E64B35FF",
 										"Sigmoid colon" = '#ff0000ff',
@@ -148,7 +154,6 @@ write.table(subset_cells.markers, file = paste0(Projectname, "_culster_all_DEGs.
 
 ###-----------------------------plot---------------------------------###
 
-
 Dimpolt_fixed <- function(obj = subset_cells, file_names = "file_names", group.by = "ident", pt.size = 0.1, label.size = 5,
 													raster = F, downsample = 100000, label = TRUE, cols = color_used, width = 15, height = 15, res = 300, pdf = FALSE, size = 5, ncol = 1, drawlegend = TRUE){
 	txt <- "p <- DimPlot(object = obj[, WhichCells(obj, downsample = downsample)], reduction = 'umap', label = label, cols = cols, group.by = group.by,
@@ -175,8 +180,6 @@ Dimpolt_fixed <- function(obj = subset_cells, file_names = "file_names", group.b
 pt.size <- 0.1
 Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_celltype_ident"), group.by = "ident", pt.size = pt.size)
 Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_patient"), group.by = "Patients", pt.size = pt.size)
-Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_N_T"), group.by = "T_N", pt.size = pt.size)
-Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_Site"), group.by = "Group", pt.size = pt.size)
 Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_porig.ident"), group.by = "orig.ident", pt.size = pt.size)
 Dimpolt_fixed(obj = subset_cells, file_names = paste0(Projectname, "_Detail_Annotation_final"), group.by = "Detail_Annotation_final", pt.size = pt.size, label.size = 7)
 
